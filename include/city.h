@@ -11,12 +11,10 @@ class City:public InputOutputFunctions<City>{
 private:
     string Name;
 public:
-    void setName(string name);
+    void setName(const string& name);
     string getName();
-    void ReadFromFile_map(const char* FILENAME , std::unordered_map<string , City>& cities) override;
-    void ReadFromFile(const char*FILENAME , std::vector<City>& city) override;
-    void Print() override;
-    void Read() override;
+    void ReadFromFile_map(const char* FILENAME , std::unordered_map<string , City>& cities) override ;
+    void ReadFromFile(const char* FILENAME , std::vector<City>& cities) override;
 };
 
 

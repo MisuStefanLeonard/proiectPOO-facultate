@@ -1,0 +1,26 @@
+***Anonymous***
+ReviewID--> 1
+Hotel-Name--> Intercontinental
+AnonymousID--> HASKLA30
+Rating--> 5
+Review--> Foarte frumos hotelul , mi-a placut!
+Recommended--> 1
+
+
+***Positive***
+ReviewID--> 2
+Hotel-Name--> Intercontinental
+CustomerID--> Ghandi30
+Rating--> 5
+Review--> Mi-a placut aici , recomand!!!
+Recommended--> 1
+
+
+***Negative***
+ReviewID--> 3
+Hotel-Name--> Intercontinental
+CustomerID--> Ghandi30
+Rating--> 5
+Review--> Did not like the hotel!Not clean and smelly!
+Not-Recommended--> 1
+

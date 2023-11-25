@@ -6,7 +6,7 @@
 
     void LinkBetweenAccountAndCustomer::ReadFromFileIntoMap(const char* FILENAME , std::unordered_map<string , Customer>& map_of_customers){
         std::ifstream filein(FILENAME);
-        if(filein.is_open() == false){
+        if(!filein.is_open()){
             std::cerr << FILENAME << " could not be opened" << std::endl;
         }
         string userName , name , prename , CNP , email;

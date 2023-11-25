@@ -1,6 +1,6 @@
 #include "city.h"
 
-    void City::setName(string name){
+    void City::setName(const string& name){
         Name = name;
     }
     string City::getName(){
@@ -20,13 +20,7 @@
         }
         filein_cities.close();
     }
-    void City::ReadFromFile(const char*FILENAME , std::vector<City>& city) {
-
-    }
-    void City::Print() {
-
-    }
-    void City::Read() {
-
+    void City::ReadFromFile(const char *FILENAME, std::vector<City> &cities) {
+    std::cout << "Not implemented" << std::endl;
     }
 

@@ -9,6 +9,8 @@
 #include <thread>
 #include "account.h"
 #include "menu.h"
+#include "../include/digestpp/digestpp.hpp"
+#include "../include/digestpp/hasher.hpp"
 using std::string;
 using std::regex;
 
@@ -25,10 +27,8 @@ public:
     int WritingVecBackToFile(const char* FILENAME , std::vector<Account> & acc);
     void Free_vec(std::vector<Account>& acc_vec);
     int ForgotPassword(const char* FILENAME);
-    int Login(const char* FILENAME , string* p_curr_id);
-    string createLastPartOfToken();
-    void ID_PASSWORD_CRYPT(string *p_id , string *p_password);
-    string generateUniqueToken(string id , string password);
+    int Login(const char* FILENAME , string& p_curr_id);
+    string SHA256(const string& input);
     long long currentTime();
 };
 

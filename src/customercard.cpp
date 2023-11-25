@@ -1,51 +1,58 @@
 #include "customercard.h"
-
-    void CustomerCard::cardSetName(string name){
-        Name = name;
-    }
+#include "../rlutil/rlutil.h"
+#define setYellow rlutil::setColor(rlutil::YELLOW)
+#define setLightRed rlutil::setColor(rlutil::LIGHTRED)
+#define setLightGreen rlutil::setColor(rlutil::GREEN)
+#define setRed rlutil::setColor(rlutil::RED)
     string CustomerCard::cardGetName(){
         return Name;
-    }
-    void CustomerCard::cardSetCardNumver(string cardnumber){
-        CardNumber = cardnumber;
     }
     string CustomerCard::cardGetCardNumber(){
         return CardNumber;
     }
-    void CustomerCard::cardSetExpirationDate(string exp_date){
-        Expiration_Date = exp_date;
-    }
     string CustomerCard::cardGetExpirationDate(){
         return Expiration_Date;
-    }
-    void CustomerCard::cardSetCVV(string cvv){
-        CVV = cvv;
     }
     string CustomerCard::cardGetCVV(){
         return CVV;
     }
-    void CustomerCard::setCardMoney(int money){
-        Money = money;
-    }
     int CustomerCard::getCardMoney(){
         return Money;
     }
-    void CustomerCard::Read(){
-        std::cout << "Name written on the credit/debit card: ";
+
+    std::istream& operator>>(std::istream& is , CustomerCard& cardOb){
+        setYellow;
+        std::cout << "*************************************\n" ;
+        std::cout << "Name written on the credit/debit card: \n" ;
+        std::cout << "*************************************\n" ;
         std::cin.ignore();
-        std::getline(std::cin, Name);
+        setLightRed;
+        std::getline(is, cardOb.Name);
         std::cout << std::endl;
-        std::cout << "Card number: ";
-        std::getline(std::cin, CardNumber);
+        setYellow;
+        std::cout << "*************************************\n" ;
+        std::cout << "Card number: \n";
+        std::cout << "*************************************\n" ;
+        setLightRed;
+        std::getline(is, cardOb.CardNumber);
         std::cout << std::endl;
-        std::cout << "Expiration date(mm/yyyy): ";
-        std::cin >> Expiration_Date;
+        setYellow;
+        std::cout << "*************************************\n";
+        std::cout << "Expiration date(mm/yyyy): \n";
+        std::cout << "*************************************\n" ;
+        setLightRed;
+        is >> cardOb.Expiration_Date;
         std::cout << std::endl;
-        std::cout << "CVV(three or two digits on the back of the card):";
-        std::cin >> CVV;
+        setYellow;
+        std::cout << "*************************************\n" ;
+        std::cout << "CVV(three or two digits on the back of the card):\n";
+        std::cout << "*************************************\n" ;
+        setLightRed;
+        is >> cardOb.CVV;
         std::cout << std::endl;
         srand(time(0));
-        Money = 1000;
+        cardOb.Money = 1000;
+        return is;
     }
     bool CustomerCard::isValidExpirationDate(){
         bool flag1 = false , flag2 = false;
@@ -67,14 +74,5 @@
         if(flag1 == true && flag2 == true)
             return true;
         return false;
-    }
-    void CustomerCard::ReadFromFile_map(const char *FILENAME , std::unordered_map<string , CustomerCard> & map){
-
-    }
-    void CustomerCard::ReadFromFile(const char* FILENAME , std::vector <CustomerCard>& card_customer){
-
-    }
-    void CustomerCard::Print(){
-
     }
 

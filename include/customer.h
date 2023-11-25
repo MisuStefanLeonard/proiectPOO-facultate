@@ -6,9 +6,10 @@
 #include <vector>
 #include <iostream>
 #include <regex>
+#include <memory>
 using std::string;
 using std::regex;
-class Customer:public InputOutputFunctions<Customer>{
+class Customer{
 private:
     string Name;
     string Prename;
@@ -19,42 +20,43 @@ private:
     std::vector<int> Number;
     string CNP;
     string Email;
+protected:
     string ID;
   
 public:
-    void setID(string id);
+    Customer() = default;
+    ~Customer() = default;
+    void setID(const string& id);
     string getID();
-    void setName(string name);
+    void setName(const string& name);
     string getName();
-    void setPrename(string prename);
+    void setPrename(const string& prename);
     string getPrename();
     void setAge(int age);
-    int getAge();
+    int getAge() const;
     void setSex(char sex);
-    char getSex();
+    char getSex() const;
     void setMoney(int money);
-    int getMoney();
+    int getMoney() const;
     void setAdult(bool adult);
-    bool getAdult();
+    bool getAdult() const;
     void setNumber(int number);
     std::vector<int> getNumber();
-    void setCNP(string cnp);
+    void setCNP(const string& cnp);
     string getCNP();
-    void setEmail(string email);
+    void setEmail(const string& email);
     string getEmail();
-    bool checkName();
-    bool checkPrename();
-    bool checkAge();
-    bool checkAdult();
-    bool checkMoney();
-    bool checkCNP();
+    bool checkName() const;
+    bool checkPrename() const;
+    bool checkAge() const;
+    bool checkAdult() const;
+    bool checkMoney() const;
+    bool checkCNP() const;
     bool checkEmailAddres();
-    void Read() override;
-    void Print() override;
-    string searchClientbyName();
-    string searchClientbyCNP();
-    void ReadFromFile(const char*FILENAME , std::vector<Customer>& customer) override;
-    void ReadFromFile_map(const char* FILENAME , std::unordered_map<string , Customer> & customer) override;
+    friend std::ostream& operator<<(std::ostream& os , Customer& customer);
+    friend std::istream& operator>>(std::istream& is , Customer& customer);
+    string searchClientbyName() const;
+    string searchClientbyCNP() const;
 };
 
 #endif
