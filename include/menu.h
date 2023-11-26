@@ -16,7 +16,7 @@ public:
     void printMenuFRONT();
     void printMenuHOTEL();
     void printRegisterLoginWindow();
-    void SpinnerInTerminal();
+    void SpinnerInTerminal(bool isAuthenticated);
     void ProgressBarExit();
     void ProgramReadyBar();
     enum customer{

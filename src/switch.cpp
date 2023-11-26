@@ -738,7 +738,7 @@
                 setCyan;
                 std::cout << std::endl;
                 std::cout << "You selected\t\t\n|\t\t\n|\t\t\n|";
-                std::cout << "\t\tv\n";
+                std::cout << "\tv\n";
                 std::cout << std::endl;
                 setYellow;
                 std::cout << "*********************" << std::endl;
@@ -1074,9 +1074,8 @@
             }
             anonym_rev->setCustomer(current_account);
             anonym_rev->ReadReview();
-            auto& current_hotel_vec = hotel_iterator->getVectorReviewPtr();
-            current_hotel_vec.push_back(anonym_rev);
-            std::cout << "EMPTY :"<< hotel_iterator->getVectorReviewPtr().empty() << std::endl;
+//            auto& current_hotel_vec = hotel_iterator->getVectorReviewPtr();
+//            current_hotel_vec.push_back(anonym_rev);
             setLightGreen;
             std::cout << "***************************************" << std::endl;
             std::cout << "REVIEW ADDED SUCCESSFULLY" << std::endl;
@@ -1128,8 +1127,8 @@
                 }
                 positive_rev->setCustomer(current_account);
                 positive_rev->ReadReview();
-                auto& current_hotel_vec = hotel_iterator->getVectorReviewPtr();
-                current_hotel_vec.push_back(positive_rev);
+//                auto& current_hotel_vec = hotel_iterator->getVectorReviewPtr();
+//                current_hotel_vec.push_back(positive_rev);
                 setLightGreen;
                 std::cout << "***************************************" << std::endl;
                 std::cout << "REVIEW ADDED SUCCESSFULLY" << std::endl;
@@ -1157,8 +1156,8 @@
                 }
                 negative_rev->setCustomer(current_account);
                 negative_rev->ReadReview();
-                auto& current_hotel_vec = hotel_iterator->getVectorReviewPtr();
-                current_hotel_vec.push_back(negative_rev);
+//                auto& current_hotel_vec = hotel_iterator->getVectorReviewPtr();
+//                current_hotel_vec.push_back(negative_rev);
                 setLightGreen;
                 std::cout << "***************************************" << std::endl;
                 std::cout << "REVIEW ADDED SUCCESSFULLY" << std::endl;

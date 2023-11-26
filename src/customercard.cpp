@@ -23,7 +23,7 @@
     std::istream& operator>>(std::istream& is , CustomerCard& cardOb){
         setYellow;
         std::cout << "*************************************\n" ;
-        std::cout << "Name written on the credit/debit card: \n" ;
+        std::cout << "Name written on the credit/debit card \n" ;
         std::cout << "*************************************\n" ;
         std::cin.ignore();
         setLightRed;
@@ -31,21 +31,21 @@
         std::cout << std::endl;
         setYellow;
         std::cout << "*************************************\n" ;
-        std::cout << "Card number: \n";
+        std::cout << "Card number \n";
         std::cout << "*************************************\n" ;
         setLightRed;
         std::getline(is, cardOb.CardNumber);
         std::cout << std::endl;
         setYellow;
         std::cout << "*************************************\n";
-        std::cout << "Expiration date(mm/yyyy): \n";
+        std::cout << "Expiration date(mm/yyyy) \n";
         std::cout << "*************************************\n" ;
         setLightRed;
         is >> cardOb.Expiration_Date;
         std::cout << std::endl;
         setYellow;
         std::cout << "*************************************\n" ;
-        std::cout << "CVV(three or two digits on the back of the card):\n";
+        std::cout << "CVV(three or two digits on the back of the card)\n";
         std::cout << "*************************************\n" ;
         setLightRed;
         is >> cardOb.CVV;

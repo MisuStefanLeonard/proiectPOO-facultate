@@ -29,7 +29,6 @@ public:
     int ForgotPassword(const char* FILENAME);
     int Login(const char* FILENAME , string& p_curr_id);
     string SHA256(const string& input);
-    long long currentTime();
 };
 
 

@@ -113,6 +113,7 @@
         std::cout << "Account created succesfuly" << std::endl;
         rlutil::resetColor();
         string passwordStored = SHA256(password);
+        std::cout << "passwordStored on register " << passwordStored << std::endl;
         fileout << id << " " << passwordStored << std::endl;
         fileout.close();
         return 0;
@@ -155,7 +156,7 @@
             return 0;
         }
         for(auto & acc_it : acc){
-            file_out << acc_it.getId() << " " << acc_it.getPass();
+            file_out << acc_it.getId() << " " << acc_it.getPass() << std::endl;
         }
         file_out.close();
         return 1;
@@ -168,24 +169,31 @@
         std::unordered_map<string , string>::iterator it;
         while(running)
         {
+            setRed;
             std::cout << "Forgot password?(Y/N) " << std::endl;
             string answer;
+            setLightGreen;
             std::cin >> answer;
             if(answer == "N" || answer == "n")
                return 0;
             string name_to_search;
+            setYellow;
             std::cout << "Please enter the name of the account " << std::endl;
+            setRed;
             std::cin >> name_to_search;
             if(pass_map.find(name_to_search) == pass_map.end()){
+                setRed;
                 std::cout << "There is no account with the name " << name_to_search << std::endl;
                 string answer2;
                 std::cout << "Would you like to enter the name again?(Y/N) " << std::endl;
+                setLightGreen;
                 std::cin >> answer2;
                 if(answer2 == "N" || answer2 == "n")
                     return 0;
                 break;
             }else{
                 it = pass_map.find(name_to_search);
+                setLightGreen;
                 std::cout << "Account found!" << std::endl;
                 string new_password;
                 setRed;
@@ -244,6 +252,10 @@
     {
         bool running = true;
         ReadingFromRecordsIntoPassMap("records.txt");
+//        for(auto& it: pass_map){
+//            std::cout << "ID: " << it.first << std::endl;
+//            std::cout << "PASS: " << it.second << std::endl;
+//        }
         while(running){
             string login_id, login_pass;
             char ch = '\0';
@@ -271,15 +283,19 @@
             }
             tcsetattr(STDIN_FILENO, TCSANOW, &oldt);
             std::cout << std::endl; 
-            bool find_id = false , find_pass = false;
+            bool find_id = false , find_pass = false , isAuthenticated = true;
             string passwordHashed = SHA256(login_pass);
+            Menu m;
             if(pass_map.find(login_id) != pass_map.end()){
                 find_id = true;
                 auto it = pass_map.find(login_id);
-                if(it->second == passwordHashed)
+                if(it->second == passwordHashed) {
                     find_pass = true;
+                }
             }
             if(find_id && find_pass){
+                isAuthenticated = true;
+                m.SpinnerInTerminal(isAuthenticated);
                 std::ofstream fileout (FILENAME , std::ios::app);
                 if(fileout.is_open() == 0){
                     std::cerr << FILENAME << " couldn't open" << std::endl;
@@ -293,6 +309,8 @@
                 p_curr_id = login_id;
                 return 1;
             }else{
+                isAuthenticated = false;
+                m.SpinnerInTerminal(isAuthenticated);
                 setLightRed;
                 std::cout << "Name or password is incorrect. Would you like to entering the name and password again?(Y/N) " << std::endl;
                 rlutil::resetColor();

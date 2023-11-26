@@ -17,6 +17,9 @@
         std::cout << "***********************************************" << std::endl;
         std::cout << "\tWELCOME TO OUR BOOKING SYSTEM" << std::endl;
         std::cout << "***********************************************" << std::endl;
+        setGreen;
+        std::cout << "IF YOU ALREADY HAVE CREATED AN ACCOUNT,PLEASE ENTER 1 TO LOAD YOUR DATA INTO THE ACCOUNT, EITHER YOU CAN ENTER YOUR DATA AND IT WILL BE SAVED" << std::endl;
+        setYellow;
         std::cout << "1.---Add customer data---" << std::endl;
         std::cout << "2.---Modify customer data---" << std::endl;
         std::cout << "3.---Search customer---" << std::endl;
@@ -122,7 +125,7 @@
         indicators::show_console_cursor(true);
     }
 
-    void Menu::SpinnerInTerminal() {
+    void Menu::SpinnerInTerminal(bool isAuthenticated) {
     using namespace indicators;
         indicators::ProgressSpinner spinner{
                 option::PostfixText{"Checking credentials"},
@@ -132,15 +135,24 @@
         };
 
         // Update spinner state
-        auto job = [&spinner]() {
+        auto job = [&spinner , isAuthenticated]() {
             while (true) {
                 if (spinner.is_completed()) {
-                    spinner.set_option(option::ForegroundColor{Color::green});
-                    spinner.set_option(option::PrefixText{"✔"});
-                    spinner.set_option(option::ShowSpinner{false});
-                    spinner.set_option(option::ShowPercentage{false});
-                    spinner.set_option(option::PostfixText{"Authenticated!"});
-                    spinner.mark_as_completed();
+                    if (isAuthenticated) {
+                        spinner.set_option(option::ForegroundColor{Color::green});
+                        spinner.set_option(option::PrefixText{"✔"});
+                        spinner.set_option(option::ShowSpinner{false});
+                        spinner.set_option(option::ShowPercentage{false});
+                        spinner.set_option(option::PostfixText{"Authenticated!"});
+                        spinner.mark_as_completed();
+                    } else {
+                        spinner.set_option(option::ForegroundColor{Color::red});
+                        spinner.set_option(option::PrefixText{"✘"});
+                        spinner.set_option(option::ShowSpinner{false});
+                        spinner.set_option(option::ShowPercentage{false});
+                        spinner.set_option(option::PostfixText{"Authentication failed!"});
+                        spinner.mark_as_completed();
+                    }
                     break;
                 } else
                     spinner.tick();

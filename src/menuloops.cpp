@@ -28,7 +28,6 @@
                     EXIT_LOGIN_REGISTER_MENU = true;
                     }
                     if(ret2 == 1){
-                        m.SpinnerInTerminal();
                         EXIT_LOGIN_REGISTER_MENU = false;
                     }
                     break;
@@ -98,7 +97,6 @@
                 }
                 case m.MODIFY_ClIENT:
                 {
-                    //LBAAC.AddFromMapToCustomerVec(customerMap , currID , customer); mistake here  !!!!
                     sw.Modify_Customer(LBAAC,customer , FILENAME , customerMap , currID);
                     LBAAC.ReadFromFileIntoMap(FILENAME , customerMap);
                     break;
