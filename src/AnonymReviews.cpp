@@ -74,7 +74,7 @@ void AnonymReview::ReadReview() {
 
 void AnonymReview::PrintReview() {
     setCyan;
-    std::cout << "--> Anonymous ID -> "<< getAnonymId();
+    std::cout << "--> Anonymous ID -> "<< getAnonymId() << std::endl;
     std::cout << "Review stars: ";
     switch (Stars) {
         case 1:{

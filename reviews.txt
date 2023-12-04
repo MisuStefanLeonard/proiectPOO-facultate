@@ -33,3 +33,12 @@ Review--> I loved the cleaning services!
 Recommended--> 1
 
 
+***Anonymous***
+ReviewID--> 5
+Hotel-Name--> Intercontinental
+AnonymousID--> Nustiu20
+Rating--> 1
+Review--> Foarte nasol nu mi-a placut!
+Recommended--> 0
+
+
