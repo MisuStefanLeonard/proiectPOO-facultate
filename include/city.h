@@ -15,6 +15,7 @@ public:
     string getName();
     void ReadFromFile_map(const char* FILENAME , std::unordered_map<string , City>& cities) override ;
     void ReadFromFile(const char* FILENAME , std::vector<City>& cities) override;
+    ~City() = default;
 };
 
 

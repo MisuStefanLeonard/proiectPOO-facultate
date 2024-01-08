@@ -12,6 +12,7 @@
 #include "NegativeReviews.h"
 #include "PositiveReviews.h"
 #include "AnonymReviews.h"
+#include "menu.h"
 class MENU_LOOPS{
 public:
     void LOGIN_LOOP(Menu m , AccountDataBase&  accDB , LinkBetweenAccountAndCustomer& LBAAC , bool& EXIT_LOGIN_REGISTER_MENU ,bool& EXIT_PROG , const char* FILENAME , const char* FILENAME2 , string& currID);

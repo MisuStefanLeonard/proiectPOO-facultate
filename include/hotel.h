@@ -65,6 +65,7 @@ public:
     void ReadFromFile(const char *FILENAME, std::vector<Hotel> &hotel) override;
     void ReadFromFile_map(const char *FILENAME, std::unordered_map<string, Hotel> &map) override;
     string searchHotel();
+
 };
 
 #endif
