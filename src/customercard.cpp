@@ -20,6 +20,26 @@
         return Money;
     }
 
+    void CustomerCard::setName(const std::string& name){
+        this->Name = name;
+    }
+
+    void CustomerCard::setCardNumer(const std::string& cardNumber){
+        this->CardNumber = cardNumber;
+    }
+
+    void CustomerCard::setCvv(const std::string& cvv){
+        this->CVV = cvv;
+    }
+
+    void CustomerCard::setExpirationDate(const std::string& expdate){
+        this->Expiration_Date = expdate;
+    }
+
+    void CustomerCard::setMoney(int money){
+        this->Money = money;
+    }
+
     std::istream& operator>>(std::istream& is , CustomerCard& cardOb){
         setYellow;
         std::cout << "*************************************\n" ;

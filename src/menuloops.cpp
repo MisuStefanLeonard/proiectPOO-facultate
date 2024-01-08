@@ -188,14 +188,17 @@
                                             bool printInfo_flag = false;
                                             bool checkingCardInfo_flag = false;
                                             auto *cardObj = new CustomerCard();
-                                            int ret4 = sw.Pay_Card(Total_PAY , cardObj , answer_flag , input_flag , cardName_flag ,
+                                            CustomerCardBuilder cardBuilder;
+                                            int ret4 = sw.Pay_Card(Total_PAY , cardObj ,cardBuilder ,answer_flag , input_flag , cardName_flag ,
                                             cardNumber_flag , cardExpDate_flag , cardCVV_flag , checkMoney_flag , printInfo_flag , checkingCardInfo_flag);
                                             if(ret4 == 1){
                                                 sw.Print_Data(printInfo_flag , cardObj , Total_PAY , h_selected , customer , checkin_date , checkout_date , single_rooms , double_rooms , triple_rooms , currID , customerMap);
                                                 break;
                                             }
-                                            else if(ret4 == 2)
+                                            else if(ret4 == 2) {
+                                                delete cardObj;
                                                 break;
+                                            }
                                             break;
                                         }
                                         case m.CARD_AND_CASH:
@@ -210,15 +213,19 @@
                                             bool printInfo_flag = false;
                                             bool checkingCardInfo_flag = false;
                                             auto *cardObj = new CustomerCard();
-                                            int ret4 = sw.Pay_Card(Total_PAY , cardObj , answer_flag , input_flag , cardName_flag ,
+                                            CustomerCardBuilder cardBuilder;
+                                            int ret4 = sw.Pay_Card(Total_PAY , cardObj , cardBuilder,answer_flag , input_flag , cardName_flag ,
                                             cardNumber_flag , cardExpDate_flag , cardCVV_flag , checkMoney_flag , printInfo_flag , checkingCardInfo_flag);
                                             if(ret4 == 1){
                                                 sw.Print_Data(printInfo_flag , cardObj , Total_PAY , h_selected , customer , checkin_date , checkout_date , single_rooms , double_rooms , triple_rooms , currID , customerMap);
                                                 std::cout << "Left to pay: " << (4*Total_PAY)/5 << "$ in cash" << std::endl;
                                                 break;
                                             }
-                                            else if(ret4 == 2)
+                                            else if(ret4 == 2){
+                                                delete cardObj;
                                                 break;
+                                            }
+
                                             break;
                                         }
                                         default:

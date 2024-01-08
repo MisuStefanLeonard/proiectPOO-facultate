@@ -42,3 +42,12 @@ Review--> Foarte nasol nu mi-a placut!
 Recommended--> 0
 
 
+***Positive***
+ReviewID--> 6
+Hotel-Name--> Grand
+CustomerID--> 
+Rating--> 5
+Review--> Foarte misto aici, super tare!
+Recommended--> 1
+
+

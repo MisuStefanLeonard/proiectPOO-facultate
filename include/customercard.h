@@ -29,6 +29,11 @@ public:
     int getCardMoney();
     friend std::istream& operator>>(std::istream& is , CustomerCard& cardOb);
     bool isValidExpirationDate();
+    void setName(const std::string& name);
+    void setCardNumer(const std::string& cardNumber);
+    void setCvv(const std::string& cvv);
+    void setExpirationDate(const std::string& expdate);
+    void setMoney(int money);
 };
 
 #endif

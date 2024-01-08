@@ -808,7 +808,7 @@
         rlutil::resetColor();
         return 0;
     }
-    int SWITCH::Pay_Card(int &p_Total_PAY , CustomerCard* cardObj , bool& answer_flag , bool &input_flag , bool &cardName_flag , bool & cardNumber_flag ,
+    int SWITCH::Pay_Card(int &p_Total_PAY , CustomerCard* cardObj ,CustomerCardBuilder& cardBuilder ,bool& answer_flag , bool &input_flag , bool &cardName_flag , bool & cardNumber_flag ,
     bool& cardExpDate_flag , bool &cardCVV_flag , bool &checkMoney_flag  , bool& printInfo_flag , bool& checkingCardInfo_flag){
         while(answer_flag)
         {
@@ -854,6 +854,12 @@
                 if(confirmation_answer == "YES" || confirmation_answer == "yes"){
                     setCyan;
                     std::cout << "Please wait....Checking card informations..." << std::endl;
+                    CustomerCard card = cardBuilder.setCardNumber(cardObj->cardGetCardNumber())
+                                                   .setExpirationDate(cardObj->cardGetExpirationDate())
+                                                   .setCVV(cardObj->cardGetCVV())
+                                                   .setName(cardObj->cardGetName())
+                                                   .setMoney(1000)
+                                                   .build();
                     std::this_thread::sleep_for(std::chrono::milliseconds(2000));
                     input_flag = true;
                     confirmation_answer_flag = true;

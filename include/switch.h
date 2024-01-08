@@ -10,6 +10,7 @@
 #include "AnonymReviews.h"
 #include "PositiveReviews.h"
 #include "NegativeReviews.h"
+#include "CustomerCardBuilder.h"
 
 
 class SWITCH{
@@ -32,7 +33,7 @@ public:
     void Select_HOTEL(std::vector<Hotel> &hotel, int &p_pos , string &p_answer_booking);
     int Rooms_Select(int &roomNUM_ans,int &oneBR_rooms , int &twoBR_rooms , int &threeBR_rooms ,  std::vector<Hotel>::iterator h_selected);
     int TotalPAY_and_WAYtoPay(std::vector<Hotel>::iterator h_selected , int& p_Total_PAY , int& p_pay_answer ,int& oneBR_rooms , int& twoBR_rooms , int& threeBR_rooms );
-    int Pay_Card(int &p_Total_PAY , CustomerCard* cardObj , bool& answer_flag , bool& input_flag , bool& cardName_flag , bool&  cardNumber_flag ,
+    int Pay_Card(int &p_Total_PAY , CustomerCard* cardObj ,CustomerCardBuilder& cardBuilder ,bool& answer_flag , bool& input_flag , bool& cardName_flag , bool&  cardNumber_flag ,
     bool& cardExpDate_flag , bool &cardCVV_flag , bool &checkMoney_flag  , bool& printInfo_flag , bool& checkingCardInfo_flag);
     void Print_Data(bool &printInfo_flag , CustomerCard *cardObj , int& p_Total_PAY ,
     std::vector<Hotel>::iterator h_selected , std::vector<Customer>& customer,
