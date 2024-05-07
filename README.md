@@ -9,15 +9,13 @@
 
 ---------------------------------------------------------------
 
-# FEW THINGS ABOUT ME : --- My name is Misu Stefan and I'm currently first year , now passed the second year at University of Bucharest , Computers And Technology of Information
 
+ --> ## PROJECT NAME: BOOKING HOTEL SYSTEM
 
- --> # PROJECT NAME: BOOKING HOTEL SYSTEM
-
- --> Personal project I have been working on.Something simple , not very complicated. 
+ --> ## Personal project I have been working on.Something simple , not very complicated. 
      Made in object-oriented C++ programming.
  
- --> Few things about the project:
+ --> ## Few things about the project:
 
      >>>>>> things to ADD ( maybe in future) ----> To disconnect yourself from the account on 									timespan of 30 minutes
 					     ----> Hotel recensions 
