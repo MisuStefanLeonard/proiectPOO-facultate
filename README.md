@@ -5,7 +5,7 @@
 
 # PERSONAL PROJECT
 
-# Friday 28 July 2023 , somewhere near dawn of the sun
+# Friday 28 July 2023 
 
 ---------------------------------------------------------------
 
@@ -36,11 +36,7 @@
 
 	---> Same works the delete system (with the files) and the forgot password function too. 
 
-
  >>>> FEEL FREE TO INSPIRE IF YOU WANT
-
-
  >>>> RUN WITH (in console) : 1) make
-			
 			      2) ./bin/main
 
