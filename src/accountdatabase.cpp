@@ -113,7 +113,6 @@
         std::cout << "Account created succesfuly" << std::endl;
         rlutil::resetColor();
         string passwordStored = SHA256(password);
-        std::cout << "passwordStored on register " << passwordStored << std::endl;
         fileout << id << " " << passwordStored << std::endl;
         fileout.close();
         return 0;
@@ -251,11 +250,7 @@
     int AccountDataBase::Login(const char* FILENAME , string& p_curr_id)
     {
         bool running = true;
-        ReadingFromRecordsIntoPassMap("records.txt");
-//        for(auto& it: pass_map){
-//            std::cout << "ID: " << it.first << std::endl;
-//            std::cout << "PASS: " << it.second << std::endl;
-//        }
+        ReadingFromRecordsIntoPassMap("TXT/records.txt");
         while(running){
             string login_id, login_pass;
             char ch = '\0';
