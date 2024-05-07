@@ -36,7 +36,7 @@
 
 	---> Same works the delete system (with the files) and the forgot password function too. 
 
- >>>> FEEL FREE TO INSPIRE IF YOU WANT
- >>>> RUN WITH (in console) : 1) make
-			      2) ./bin/main
+
+RUN WITH (in console) : 1) make
+			2) ./bin/main
 
